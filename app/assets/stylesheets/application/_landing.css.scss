@@ -1,0 +1,23 @@
+.landing {
+  text-align: center;
+  p {
+    margin: 2em;
+  }
+
+  .btn {
+    margin: 1.5em 1em;
+  }
+}
+
+.about {
+  h2 {
+    color: $blue;
+  }
+  li {
+    color: white;
+  }
+}
+
+.new_league p {
+  color: $blue;
+}

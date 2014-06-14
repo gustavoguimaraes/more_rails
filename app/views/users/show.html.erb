@@ -1,0 +1,55 @@
+
+<% if @memberships.any? %>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-2">
+    <h1>Player: <%= @user.username %></h1>
+    <p>Overall Score: <%= @user.total_points %></p>
+    <p>Overall Rank: <%= @user.overall_rank %></p>
+    <h3>Leagues</h3>
+    <% @memberships.each do |membership| %>
+      <p><%= link_to membership.league.name, league_path(membership.league) %></p>
+    <% end %>
+
+    <h3>Opponents</h3>
+    <p>username, overall rank, score</p>
+    <% opponents(@user).each do |opponent| %>
+      <p><%= link_to opponent.username, user_path(opponent) %>, rank:  <%= opponent.overall_rank %>, score: <%= opponent.overall_rank %></p>
+    <% end %>
+
+  </div>
+  <div class="col-sm-4">
+    <h3>NewsFeed</h3>
+    <% newsfeed(@user).each do |us| %>
+      <% next if us.game == nil %>
+      <h3><%= link_to "#{us.user.username}'s", user_path(us.user) %> prediction</h3>
+      <h4><%= us.game.team_1 %> vs. <%= us.game.team_2 %></h4>
+      <% if us.game.final? %>
+        <p>FINAL<p>
+        <p>Actual:  <%= us.game.team_1_score %>  :  <%= us.game.team_2_score %></p>
+      <% end %>
+      <p>Predicted: <%= us.team_1_prediction %>  :  <%= us.team_2_prediction %></p>
+      <p>Points Earned: <%= us.points %></p>
+    <% end %>
+  </div>
+</div>
+
+<% else %>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h1><%= @user.username %></h1>
+      <p>Overall Score: <%= @user.total_points %></p>
+      <p>Overall Rank: <%= @user.overall_rank %></p>
+      <h3>Leagues</h3>
+        <p>Join <%= link_to "Leagues", leagues_path %></p>
+
+      <h3>Opponents</h3>
+      <p>Join <%= link_to "Leagues", leagues_path %> to get opponents</p>
+    </div>
+  </div>
+
+<% end %>
+
+
+
+

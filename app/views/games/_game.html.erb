@@ -1,0 +1,42 @@
+<% if game.finished? %>
+  <div class="game">
+    <div class="row">
+
+      <div class="col-sm-4 scorecard">
+        <h2>Actual</h2>
+        <h3><%= game.team_1 %> vs. <%= game.team_2 %> <small>FINAL</small></h3>
+        <p><%= game.schedule.strftime("%-d %B, %Y %l:%M %p") if game.schedule %></p>
+        <p><%= game.team_1 %>: <%= game.team_1_score %></p>
+        <p><%= game.team_2 %> : <%= game.team_2_score %></p>
+      </div>
+
+      <% if game.user_score_exists?(current_user) %>
+        <div class="col-sm-4 scorecard">
+        <h2>Your Scorecard</h2>
+         <h3><%= game.team_1 %> vs. <%= game.team_2 %></h3>
+            <p><%= game.schedule.strftime("%-d %B, %Y %l:%M %p") if game.schedule %></p>
+            <p><%= game.team_1 %>: <%= game.find_user_score(current_user).team_1_prediction %></p>
+            <p><%= game.team_2 %> : <%= game.find_user_score(current_user).team_2_prediction %></p>
+            <p>Points: <%= game.find_user_score(current_user).points %></p>
+        </div>
+      <% end %>
+    </div>
+   </div>
+
+
+<% elsif game.user_score_exists?(current_user) == false %>
+  <div class="game">
+      <h3><%= game.team_1 %> vs. <%= game.team_2 %></h3>
+      <p><%= game.schedule.strftime("%-d %B, %Y %l:%M %p") if game.schedule %></p>
+      <div class="btn btn-warning"><%= link_to "New Prediction", new_game_user_score_path(game_id: game.id) %></div>
+  </div>
+
+<% elsif game.user_score_exists?(current_user) == true %>
+    <div class="game">
+      <h3><%= game.team_1 %> vs. <%= game.team_2 %></h3>
+      <p><%= game.schedule.strftime("%-d %B, %Y %l:%M %p") %></p>
+      <p><%= game.team_1 %>: <%= game.find_user_score(current_user).team_1_prediction %></p>
+      <p><%= game.team_2 %> : <%= game.find_user_score(current_user).team_2_prediction %></p>
+      <div class="btn btn-info"><%= link_to "Update Prediction", new_game_user_score_path(game_id: game.id) %></div>
+   </div>
+<% end %>

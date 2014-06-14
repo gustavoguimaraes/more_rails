@@ -1,0 +1,5 @@
+<div class="container-fluid leagues">
+<div class="center"><%= link_to "Create League", new_league_path, class: " btn btn-warning" %></div>
+<%= render @leagues %>
+<%= button_to "Update Ranks", rank_league_memberships_leagues_path, class: "btn-league btn btn-info" %>
+</div>

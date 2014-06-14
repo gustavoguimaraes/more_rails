@@ -1,0 +1,8 @@
+<div class="league leagueshow">
+  <h1><%= @league.name %></h1>
+  <h2><%= @league.location %></h2>
+  <h3><%= @members.count %> Players</h3>
+  <% @members.each do |member| %>
+    <p><%= member.rank %>. <%= member.user.username %>, total points: <%= member.user.total_points %></p>
+  <% end %>
+</div>

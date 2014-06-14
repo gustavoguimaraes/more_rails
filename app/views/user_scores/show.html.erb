@@ -1,0 +1,14 @@
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+  <h1> Your prediction</h1>
+  <div class="game">
+    <h2><%= @user_score.game.team_1 %> : <strong><%= @user_score.team_1_prediction %></strong>  <em>vs.</em>  <%= @user_score.game.team_2 %> : <strong><%= @user_score.team_2_prediction %></strong></h2>
+    <h3>Points: <%= @user_score.points %></h3>
+    <% if @user_score.game.final %>
+      <h3>Final</h3>
+    <% end %>
+  </div>
+</div>
+
+</div>

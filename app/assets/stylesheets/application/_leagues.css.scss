@@ -1,0 +1,39 @@
+// Place all the styles related to the Leagues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.league {
+  display: block;
+  clear: all;
+  h2 {
+    color: $blue;
+
+  }
+  .btn-info {
+    align: left;
+  }
+
+}
+
+.new-league {
+  color: $blue;
+}
+
+.leagueshow {
+  text-align: center;
+  h1{
+    color: $gold;
+  }
+}
+
+.mjoin {
+  text-align: left;
+}
+
+
+
+@media (min-width: 971px) {
+  .league {
+    text-align: center;
+  }
+}

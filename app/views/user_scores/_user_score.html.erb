@@ -1,0 +1,17 @@
+<% unless user_score.game.nil? %>
+  <div class="row">
+
+    <div class="md-col-6">
+      <h2>Match</h2>
+      <div class="game">
+        <h3><%= user_score.game.team_1 %> Vs. <%= user_score.game.team_2 %></h3>
+        <p>Team 1: <%= user_score.game.team_1 %> | Goals: <%= user_score.team_1_prediction %></p>
+        <p>Team 2:<%= user_score.game.team_2 %> | Goals: <%= user_score.team_2_prediction %></p>
+        <p>Points: <%= user_score.points %></p>
+        <% if user_score.game.final %>
+          <p>Final</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

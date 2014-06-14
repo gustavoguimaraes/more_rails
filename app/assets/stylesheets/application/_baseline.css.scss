@@ -1,0 +1,62 @@
+
+$darkGrey: #404040;
+$blue: #679aba;
+$gold: #f8da4a;
+
+.center {
+  text-align: center;
+}
+
+.container-fluid {
+  background: $darkGrey;
+}
+
+body {
+  background: $darkGrey;
+  color: white;
+}
+
+
+h1, h2, h3, h4, h5, p {
+  color: white;
+}
+
+p {
+  margin: 4px;
+  line-height: 1.4em;
+}
+
+li {
+  color: white;
+}
+
+form p {
+ color: $blue;
+}
+
+small {
+  color: $blue;
+}
+
+.scorecard {
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+
+#notice {
+  color: $gold;
+  border: solid 1px $gold;
+  padding: 1em;
+  text-align: center;
+}
+
+
+
+// //MEDIA QUERIES
+// $mobile-min: 320px;
+// $mobile-max: 450px;
+// $tablet-min: 451px;
+// $tablet-max: 971px;
+// $large-screen-min: 1200px;
+

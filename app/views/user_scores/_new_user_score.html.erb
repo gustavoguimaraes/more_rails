@@ -1,0 +1,9 @@
+
+<%= form_for @user_score, user_score: UserScore.initialize(user: current_user) do |f| %>  <%= f.hidden_field :game_id, value: params[:game_id] %>
+    <div class="form-input"><h2><%= @game.team_1 %><%= f.text_field :team_1_prediction, class: "new" %> vs.</h2></div>
+    <div class="form-input"><h2><%= f.text_field :team_2_prediction, class: "new" %><%= @game.team_2 %></h2></div>
+    <p class="center">double or nothing <%= f.check_box :double_or_nothing %></p>
+
+
+  <%= f.submit "Save Predictions", class: "btn btn-info btn-us center" %>
+<% end %>

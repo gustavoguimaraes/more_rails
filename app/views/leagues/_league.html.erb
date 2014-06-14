@@ -1,0 +1,17 @@
+<div class="row league">
+  <div class="col-sm-4 col-sm-offset-2">
+    <h2><%= league.name %></h2>
+    <p>Location: <%= league.location %></p>
+    <%= link_to "Join", new_league_membership_path(league), method: :get, class: "btn btn-info" %>
+    <%= link_to "Profile", league_path(league), class: "btn btn-info" %>
+  </div>
+  <div class="col-sm-4">
+    <h2>Top 5 players</h2>
+    <% unless league.users.empty? %>
+    <% league.memberships.limit(5).each do |membership| %>
+      <p><%= membership.rank if membership.rank %>. <%= membership.user.username %>, Score: <%= membership.user.total_points %></p>
+    <% end %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  encoding: unicode
+  pool: 5
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: soccer_cup_development
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: soccer_cup_test
+  pool: 5
+
+cucumber:
+  <<: *test
+
+
+production:
+  <<: *default
+  database: "soccer_cup_production"
